@@ -2,137 +2,198 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Advanced Mind Map - Wild Animals</title>
+<title>How to Tell Wild Animals</title>
+
 <style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: radial-gradient(circle, #1e3c72, #2a5298);
-        color: white;
-        overflow: hidden;
-    }
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(-45deg, #74ebd5, #ACB6E5, #ff9a9e, #fad0c4);
+    background-size: 400% 400%;
+    animation: bg 10s infinite alternate;
+}
 
-    h1 {
-        text-align: center;
-        margin-top: 20px;
-    }
+@keyframes bg {
+    0% {background-position: left;}
+    100% {background-position: right;}
+}
 
-    .mindmap {
-        position: relative;
-        width: 100vw;
-        height: 90vh;
-    }
+header {
+    text-align: center;
+    padding: 20px;
+    color: white;
+    background: rgba(0,0,0,0.7);
+}
 
-    .node {
-        position: absolute;
-        padding: 12px 16px;
-        border-radius: 12px;
-        text-align: center;
-        cursor: pointer;
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
+/* Sections */
+.section {
+    background: white;
+    margin: 20px auto;
+    padding: 20px;
+    width: 85%;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: fade 1s;
+}
 
-    .node:hover {
-        transform: scale(1.1);
-        box-shadow: 0 0 15px white;
-    }
+@keyframes fade {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1;}
+}
 
-    .center {
-        top: 40%;
-        left: 45%;
-        background: #feca57;
-        color: black;
-        font-weight: bold;
-    }
+/* Mindmap */
+.mindmap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
-    .lion { top: 10%; left: 20%; background: #ff6b6b; }
-    .tiger { top: 10%; right: 20%; background: #ff9f43; }
-    .leopard { top: 70%; left: 20%; background: #1dd1a1; }
-    .bear { top: 70%; right: 20%; background: #5f27cd; }
-    .others { top: 25%; left: 5%; background: #341f97; }
-    .theme { top: 25%; right: 5%; background: #10ac84; }
-    .tone { bottom: 5%; left: 45%; background: #ee5253; }
+.node {
+    background: #0984e3;
+    color: white;
+    margin: 15px;
+    padding: 10px;
+    border-radius: 12px;
+    width: 200px;
+    text-align: center;
+    transition: 0.4s;
+}
 
-    svg {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-    }
+.node:hover {
+    transform: scale(1.1);
+    background: #6c5ce7;
+}
 
-    line {
-        stroke: white;
-        stroke-width: 2;
-        stroke-dasharray: 5;
-        animation: dash 2s linear infinite;
-    }
+/* IMAGE STYLE FIX */
+.node img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 8px;
+}
 
-    @keyframes dash {
-        to {
-            stroke-dashoffset: -10;
-        }
-    }
+/* Music */
+audio {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+/* Button */
+button {
+    padding: 10px;
+    background: #00b894;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
 </style>
 </head>
 
 <body>
 
-<h1>🐾 How to Tell Wild Animals</h1>
+<!-- 🎵 Music -->
+<audio controls autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+</audio>
 
-<div class="mindmap">
+<header>
+    <h1>🐾 How to Tell Wild Animals</h1>
+    <h3>By Carolyn Wells</h3>
+</header>
 
-    <!-- Lines -->
-    <svg>
-        <line x1="50%" y1="45%" x2="20%" y2="15%" />
-        <line x1="50%" y1="45%" x2="80%" y2="15%" />
-        <line x1="50%" y1="45%" x2="20%" y2="75%" />
-        <line x1="50%" y1="45%" x2="80%" y2="75%" />
-        <line x1="50%" y1="45%" x2="5%" y2="30%" />
-        <line x1="50%" y1="45%" x2="95%" y2="30%" />
-        <line x1="50%" y1="45%" x2="50%" y2="95%" />
-    </svg>
-
-    <!-- Nodes -->
-    <div class="node center">Wild Animals</div>
-
-    <div class="node lion">
-        🦁 Lion<br>Roars loudly
-    </div>
-
-    <div class="node tiger">
-        🐯 Tiger<br>Eats you
-    </div>
-
-    <div class="node leopard">
-        🐆 Leopard<br>Jumps again & again
-    </div>
-
-    <div class="node bear">
-        🐻 Bear<br>Tight deadly hug
-    </div>
-
-    <div class="node others">
-        🐊 Others<br>
-        Hyena ௭ laughs<br>
-        Crocodile ௭ tears<br>
-        Chameleon ௭ changes color
-    </div>
-
-    <div class="node theme">
-        🎯 Themes<br>
-        Humour<br>
-        Irony<br>
-        Awareness
-    </div>
-
-    <div class="node tone">
-        🎭 Tone<br>
-        Funny<br>
-        Playful<br>
-        Light
-    </div>
-
+<!-- Summary -->
+<div class="section">
+    <h2>📖 Summary</h2>
+    <p>
+        This poem humorously explains how to identify wild animals in dangerous situations.
+        It uses irony and fun descriptions to make learning interesting.
+    </p>
 </div>
+
+<!-- Mindmap -->
+<div class="section">
+    <h2>🧠 Mind Map</h2>
+    <div class="mindmap">
+
+        <div class="node">
+            <img src="lion.jpg">
+            🦁 <b>Lion</b><br>Roars loudly
+        </div>
+
+        <div class="node">
+            <img src="tiger.jpg">
+            🐯 <b>Tiger</b><br>Stripes & danger
+        </div>
+
+        <div class="node">
+            <img src="leopard.jpg">
+            🐆 <b>Leopard</b><br>Spots & attack
+        </div>
+
+        <div class="node">
+            <img src="bear.jpg">
+            🐻 <b>Bear</b><br>Deadly hug
+        </div>
+
+        <div class="node">
+            <img src="crocodile.jpg">
+            🐊 <b>Crocodile</b><br>Tears
+        </div>
+
+        <div class="node">
+            <img src="hyena.jpg">
+            😂 <b>Hyena</b><br>Laughs
+        </div>
+
+        <div class="node">
+            <img src="chameleon.jpg">
+            🦎 <b>Chameleon</b><br>Color change
+        </div>
+
+    </div>
+</div>
+
+<!-- Themes -->
+<div class="section">
+    <h2>🎯 Themes</h2>
+    <ul>
+        <li>Humour in danger</li>
+        <li>Irony</li>
+        <li>Wildlife awareness</li>
+    </ul>
+</div>
+
+<!-- Tone -->
+<div class="section">
+    <h2>🎭 Tone</h2>
+    <ul>
+        <li>Humorous</li>
+        <li>Playful</li>
+        <li>Light-hearted</li>
+    </ul>
+</div>
+
+<!-- Fun Fact -->
+<div class="section">
+    <h2>✨ Fun Fact</h2>
+    <button onclick="showFact()">Click Me</button>
+    <p id="fact" class="hidden">
+        Animals are identified only after dangerous encounters 😄
+    </p>
+</div>
+
+<script>
+function showFact() {
+    document.getElementById("fact").classList.toggle("hidden");
+}
+</script>
 
 </body>
 </html>
